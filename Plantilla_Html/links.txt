@@ -1,0 +1,13 @@
+blog template
+https://www.youtube.com/watch?v=EkeOuwF8g8s
+
+bootstrap:
+https://getbootstrap.com/
+
+fotos gratis:
+https://unsplash.com/s/photos/person
+
+Front Awesome:
+
+https://fontawesome.com/
+<script src="https://kit.fontawesome.com/59b4fec214.js" crossorigin="anonymous"></script>
