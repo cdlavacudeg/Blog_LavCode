@@ -3,6 +3,7 @@ https://www.youtube.com/watch?v=EkeOuwF8g8s
 
 bootstrap:
 https://getbootstrap.com/
+https://hackerthemes.com/bootstrap-cheatsheet/
 
 fotos gratis:
 https://unsplash.com/s/photos/person
