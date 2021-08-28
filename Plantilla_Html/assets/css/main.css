@@ -1,0 +1,70 @@
+/*.color1 {color: #060a1b;}
+.color2 {color: #0f3350;}
+.color3 {color: #1d6891;}
+.color4 {color: #2b9fc8;}
+.color5 {color: #2bcac8;}
+*/
+:root{
+    --black:#060a1b;
+    --blueDark:#0f3350;
+    --blueLightDark:#1d6891;
+    --blueLight:#2b9fc8;
+    --blueMarine:#2bcac8;
+    --gray:
+}
+
+body{
+    font-family: 'Roboto',sans-serif;
+}
+
+h1,h2,h3,h4,h5{
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 700;
+}
+
+/*Header*/
+
+.navbar{
+    background-color: whitesmoke;
+    position: sticky;
+    top: 0%;
+    font-size:1.8vw;
+    text-align: center;
+}
+
+.navbar a {
+    color:var(--black);
+}
+
+
+.navbar a:visited{
+    color:var(--black);
+}
+
+.dropdown-item:active{
+    background-color:white;
+}
+
+
+.navbar-logo{
+    padding: 0;
+    background-color: transparent;
+    margin:0 1rem 0 1rem;
+    width: 25%;
+    text-align: center;
+    
+}
+
+.btn-outline-blue{
+    color:var(--blueDark);
+    border-color: var(--blueDark); 
+}
+.btn-outline-blue:hover{
+    background-color: var(--blueLightDark);
+    color:white;
+}
+
+
+
+
+

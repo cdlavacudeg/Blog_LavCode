@@ -16,47 +16,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
     <!--Iconos FontAwesome-->
     <script src="https://kit.fontawesome.com/59b4fec214.js" crossorigin="anonymous"></script>
+    <!--Css local-->
+    <link href="assets\css\main.css" rel="stylesheet">
 </head>
 
 <body>
+  <div ></div>
     <!--Header section-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-md">
         <div class="container">
-          <a class="navbar-brand" href="#">LavCode</a>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <div class="navbar-logo">
+            <img class="img-fluid" src="assets\img\Logo_Lateral_G.png" alt="LavCode">
+          </div> 
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mx-auto p-md-2">
+              <li class="nav-item mx-md-2">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
+              
+              <li class="nav-item dropdown mx-md-2">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Cheat Sheets
                 </a>
+
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="#">Html</a></li>
+                  <li><a class="dropdown-item" href="#">CSS</a></li>
+                  <li><a class="dropdown-item" href="#">Pyhton</a></li>
+                  <li><a class="dropdown-item" href="#">Mql5</a></li>
+                </ul>
+              </li>
+              
+              <li class="nav-item dropdown mx-md-2">
+                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cursos</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Html</a></li>
+                  <li><a class="dropdown-item" href="#">CSS</a></li>
+                  <li><a class="dropdown-item" href="#">Pyhton</a></li>
+                  <li><a class="dropdown-item" href="#">Mql5</a></li>
                 </ul>
               </li>
             </ul>
+
+
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-blue" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -79,7 +87,7 @@
                         <div class="hero-post-content"> <!--contenido del post-->
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img alt="Author" class="img-fluid rounded-circle" src="assets\img\A1.jpg">
+                                    <img alt="Author" class="img-fluid rounded" src="assets\img\A1.jpg">
                                 </div>
                                 <div class="col-md-9">
                                     <h2>Title of My post</h2>
@@ -90,8 +98,8 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-4"><!--Contenido de las 4 columnas restantes-->
-                  <div class="hero-post shadow"> <!--Post -->
+                <div class="col-lg-4 shadow"><!--Contenido de las 4 columnas restantes-->
+                  <div class="hero-post p-2 m-auto"> <!--Post -->
                     <img class="img-fluid" alt="" src="assets\img\Post_2.jpg"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
                     
                     <div class="hero-post-badges"><!--Muestrar arriba de la imagen-->
@@ -100,10 +108,10 @@
 
                     </div>
                     
-                    <div class="hero-post-content"> <!--contenido del post-->
+                    <div class="hero-post-content "> <!--contenido del post-->
                         <div class="row">
                             <div class="col-md-3">
-                                <img alt="Author" class="img-fluid rounded-circle" src="assets\img\A2.jpg">
+                                <img alt="Author" class="img-fluid rounded" src="assets\img\A2.jpg">
                             </div>
                             <div class="col-md-9">
                                 <h2>Title of My post</h2>
@@ -112,7 +120,7 @@
                         </div>
                     </div>
                     
-                  <div class="hero-post shadow"> <!--Post -->
+                  <div class="hero-post p-2 m-auto"> <!--Post -->
                     <img class="img-fluid" alt="" src="assets\img\Post_3.jpg"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
                     
                     <div class="hero-post-badges"><!--Muestrar arriba de la imagen-->
@@ -124,7 +132,7 @@
                     <div class="hero-post-content"> <!--contenido del post-->
                         <div class="row">
                             <div class="col-md-3">
-                                <img alt="Author" class="img-fluid rounded-circle" src="assets\img\A3.jpg">
+                                <img alt="Author" class="img-fluid rounded w-100" src="assets\img\A3.jpg">
                             </div>
                             <div class="col-md-9">
                                 <h2>Title of My post</h2>
@@ -134,14 +142,13 @@
                     </div>
                     
                 </div>
-
                 </div>
             </div>
          </div>
-
-
       </section>
  
+
+
       <!--Main Blog Seccion-->
       <section class="blog-posts py-4">
         <div class="container">
@@ -243,11 +250,71 @@
 
           <aside class="col-md-4">
 
+            <!--Social links-->
+            <div class="row text-center">
+              <div class="col-sm-4">
+                <a class="social-link py-4 w-100"><i class="fab fa-twitter"></i></a>
+              </div>
+              <div class="col-sm-4">
+                <a class="social-link py-4 w-100"><i class="fab fa-github"></i></i></a>
+              </div>
+              <div class="col-sm-4">
+                <a class="social-link py-4 w-100"><i class="fab fa-youtube"></i></i></a>
+              </div>
+
+            </div>
+
+            <div class="container"><p>Publicidad Adsense</p></div>
+
           </aside>
 
 
         </div>
         </div>
       </section>
+
+
+      <!--Footer Section-->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <a class="footer-logo" href="#">Blogg</a>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elit nibh, tristique pharetra feugiat sit amet, viverra sed elit. Donec nec tortor quis lacus faucibus porta. In a quam non velit tempor scelerisque sed imperdiet neque. Vestibulum gravida, nisi sed interdum fringilla, nunc dui viverra tellus, ut pellentesque neque orci et elit. Quisque sollicitudin turpis magna, ac efficitur urna tempus ac.
+              </p>
+
+            </div>
+            
+            <div class="col-md-4">
+              <h4>Useful links</h4>
+              <ul>
+                <li><a>Home</a></li>
+                <li><a>Terms of service</a></li>
+                <li><a>Privacy</a></li>
+                <li><a>Contact Us</a></li>
+                <li><a> letter</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-md-4">
+              <h4>New letter</h4>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+          <div class="w-100 text-center">
+            <p>Made by Cristian Lavacude &copy; 2020.All rights reserved</p>
+          </div>
+
+
+
+
+        </div>
+
+
+      </footer>
 </body>
 </html>
