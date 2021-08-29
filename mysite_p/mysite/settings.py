@@ -25,7 +25,7 @@ SECRET_KEY = '0g0ut6+w60*6_deka4j)is+svie^2b4=v6k()qz0=3%ohnsgzk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home.apps.HomeConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['mysite\static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,4 +118,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'mysite_p/static/' #todos los archivos staticos quedaran con este inicion de url
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+STATIC_ROOT='mysite_p/static'
