@@ -1,0 +1,63 @@
+:root{
+    --black:#060a1b;
+    --blueDark:#0f3350;
+    --blueLightDark:#1d6891;
+    --blueLight:#2b9fc8;
+    --blueMarine:#2bcac8;
+}
+
+body{
+    font-family: 'Roboto',sans-serif;
+    background-color: whitesmoke;
+}
+
+h1,h2,h3,h4,h5{
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 700;
+}
+
+/*Header*/
+
+.navbar{
+    background-color: white;
+    position: sticky;
+    top: 0%;
+    font-size:1.4vw;
+    text-align: center;
+}
+
+.navbar a {
+    color:var(--blueDark);
+}
+
+
+.navbar a:visited{
+    color:var(--blueDark);
+}
+
+.dropdown-item:active{
+    background-color:white;
+}
+
+
+.navbar-logo{
+    padding: 0;
+    margin:0 1rem 0 1rem;
+    width: 25%;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.btn-outline-blue{
+    color:var(--blueDark);
+    border-color: var(--blueDark); 
+}
+.btn-outline-blue:hover{
+    background-color: var(--blueLightDark);
+    color:white;
+}
+
+
+
+
+
