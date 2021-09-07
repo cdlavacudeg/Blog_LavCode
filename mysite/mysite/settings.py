@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
+    #https://django-ckeditor.readthedocs.io/en/latest/#django-ckeditor
     'ckeditor',
-
+    #https://django-import-export.readthedocs.io/en/latest/index.html
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -102,7 +104,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+#Configuracion ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -125,4 +132,4 @@ STATIC_URL = '/static/' #todos los archivos staticos quedaran con este inicion d
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-STATIC_ROOT='mysite_p/static'
+STATIC_ROOT='mysite/static'

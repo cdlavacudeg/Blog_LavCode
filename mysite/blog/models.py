@@ -6,6 +6,9 @@ from ckeditor.fields import RichTextField
 class Autor(models.Model):
     autor=models.CharField(max_length=250,blank=False,null=False)
 
+    def __str__(self):
+        return self.autor
+
 
 class Tags(models.Model):
     tag=models.CharField(max_length=90)
@@ -13,6 +16,8 @@ class Tags(models.Model):
     class Meta:
         verbose_name='Tag'
         verbose_name_plural='Tags'
+    def __str__(self):
+        return self.tag
 
 
 
@@ -30,6 +35,9 @@ class Blog(models.Model):
     #https://docs.djangoproject.com/en/3.2/ref/models/fields/#datefield
     creacion_en=models.DateTimeField(auto_now_add=True)
     modificado_en=models.DateTimeField(auto_now=True)
+
+    def __str__(self) :
+        return self.titulo
 
  
 

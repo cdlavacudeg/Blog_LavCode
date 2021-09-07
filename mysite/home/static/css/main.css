@@ -19,34 +19,23 @@ h1,h2,h3,h4,h5{
 /*Header*/
 
 .navbar{
-    background-color: white;
-    position: sticky;
-    top: 0%;
     font-size:1.4vw;
     text-align: center;
 }
 
-.navbar a {
-    color:var(--blueDark);
-}
-
-
-.navbar a:visited{
-    color:var(--blueDark);
-}
-
-.dropdown-item:active{
-    background-color:white;
-}
 
 
 .navbar-logo{
     padding: 0;
-    margin:0 1rem 0 1rem;
+    margin:0;
     width: 25%;
-    text-align: center;
+    text-align: left;
     font-size: 2vw;
+    text-decoration: none;
+    font-weight: 300;
 }
+
+
 
 .btn-outline-blue{
     color:var(--blueDark);
@@ -57,7 +46,24 @@ h1,h2,h3,h4,h5{
     color:white;
 }
 
+.footer-c{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 2rem;
+}
 
+@media only screen and (max-width: 720px) {
+    .navbar-logo{
+        font-size: 4vh;
+    }
 
+    .navbar{
+        font-size:3.4vw;
+        text-align: center;
+    }
+  }
 
 

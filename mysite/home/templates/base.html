@@ -9,15 +9,12 @@
     <title>LavCode</title>
     <!-- CSS only Bootstrap 4-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper Bootstrap 4-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
     <!--Fonts from Googlefonts-->
     <!--font-family: 'Open Sans', sans-serif; font-family: 'Roboto', sans-serif;-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
-    <!--Iconos FontAwesome-->
-    <script src="https://kit.fontawesome.com/59b4fec214.js" crossorigin="anonymous"></script>
     <!--Css local-->
     {% load static %}
     <link href="{% static 'css\main.css'%}" rel="stylesheet">
@@ -32,35 +29,38 @@
 
   <div ></div>
     <!--Header section-->
-    <nav class="navbar navbar-expand-md">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        
+      <div class="container">
 
-          <div class="navbar-logo">
-            <span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span>
-            
-          </div> 
+          <a href="#" class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mx-auto p-md-2">
-              <li class="nav-item mx-md-2">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <div class="collapse navbar-collapse text-right" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mx-md-auto">
+              <li class="nav-item mx-lg-auto">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
               
               <li class="nav-item dropdown mx-md-2">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Cheat Sheets
+                  Tablas resumen
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Html</a></li>
-                  <li><a class="dropdown-item" href="#">CSS</a></li>
-                  <li><a class="dropdown-item" href="#">Pyhton</a></li>
+                  <li><a class="dropdown-item" href="#">Django</a></li>
                   <li><a class="dropdown-item" href="#">Mql5</a></li>
                 </ul>
               </li>
+
+              <li class="nav-item mx-lg-auto">
+                <a class="nav-link" aria-current="page" href="#">Blog</a>
+              </li>
               
-              <li class="nav-item dropdown mx-md-2">
+              <!-- <li class="nav-item dropdown mx-md-2">
                 <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cursos</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="#">Html</a></li>
@@ -68,21 +68,27 @@
                   <li><a class="dropdown-item" href="#">Pyhton</a></li>
                   <li><a class="dropdown-item" href="#">Mql5</a></li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
 
 
-            <form class="d-flex">
+            <form class="d-flex mr-md-auto">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-blue" type="submit">Search</button>
             </form>
+
           </div>
         </div>
     </nav>
 
+
+
+
+
     <!--Hero section-->
+
     <section class="hero py-md-4">
-      <div class="container shadow">
+      <div class="container">
         <div class="row">
           <div class="col-lg-8">
             {% block content1 %}
@@ -91,11 +97,11 @@
 
           <div class="col-lg-4">
             {% block content2 %}
-
             {% endblock content2 %}
           </div>          
         </div>
       </div>
+
     
 
 
@@ -104,44 +110,40 @@
   </section>
 
       <!--Footer Section-->
-      <footer>
+      <footer class='bg-white footer-c'>
         <div class="container">
           <div class="row">
-            <div class="col-md-4">
-              <a class="footer-logo" href="#">Blogg</a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elit nibh, tristique pharetra feugiat sit amet, viverra sed elit. Donec nec tortor quis lacus faucibus porta. In a quam non velit tempor scelerisque sed imperdiet neque. Vestibulum gravida, nisi sed interdum fringilla, nunc dui viverra tellus, ut pellentesque neque orci et elit. Quisque sollicitudin turpis magna, ac efficitur urna tempus ac.
+            <div class="col-md-9 text-justify">
+              <a href="#" class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></a>
+              
+              <p class="text-justify">
+                Esta página (cuyo nombre surge de jugar un poco con mi apellido y el inglés) nace como un proyecto personal para mejorar mis habilidades de programación, mientras voy documentando mi experiencia en este campo.<br/><br> El objetivo es que la información aquí publicada también pueda ser de ayuda para otras personas que a su vez quieran empezar a aprender y necesiten un pequeño referente que los guíe en este vasto mundo de la programación. 
+
               </p>
 
             </div>
             
-            <div class="col-md-4">
-              <h4>Useful links</h4>
-              <ul>
-                <li><a>Home</a></li>
-                <li><a>Terms of service</a></li>
-                <li><a>Privacy</a></li>
-                <li><a>Contact Us</a></li>
-                <li><a> letter</a></li>
-              </ul>
+            <div class="col-md-3">
+              {% block footer %}
+              {% endblock footer %}
             </div>
             
-            <div class="col-md-4">
-              <h4>New letter</h4>
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
             </div>
           </div>
-          <div class="w-100 text-center">
-            <p>Made by Cristian Lavacude &copy; 2020.All rights reserved</p>
+          <div class="w-100 text-center p-0">
+            <span>Made by Cristian Lavacude &copy; 2021.All rights reserved</span>
           </div>
-
-
-
-
         </div>
       </footer>
+
+      <!--================Scripts=====================-->
+      <!-- JavaScript Bundle with Popper Bootstrap 4-->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <!-- JavaScript Bundle with Popper Bootstrap 4-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+      <!--Iconos FontAwesome-->
+      <script src="https://kit.fontawesome.com/59b4fec214.js" crossorigin="anonymous"></script>
 </body>
 </html>

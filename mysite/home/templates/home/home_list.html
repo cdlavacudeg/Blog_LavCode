@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+<!-- Hero Section-->
+<h1>Ultimos Posts</h1>
+
+<ul>
+{% for post in blog_list %}
+    <li>{{ post.titulo }}-{{ post.creacion_en|date }} <br>{{post.descripcion}} </li>
+{% empty %}
+    <li>No hay ningun post hasta el momento</li>
+{% endfor %}
+</ul>
+{%endblock content1 %}
+
+
+{% block content2%}
+<h2>Post mas recientes</h2>
+<ul>
+{% for post in recent_post %}
+    <li>{{ post.creacion_en|date }} - {{ post.titulo }}</li>
+{% endfor %}
+</ul>
+{%endblock content2%}
+
+
