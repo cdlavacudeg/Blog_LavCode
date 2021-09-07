@@ -2,25 +2,51 @@
 
 {% block content1 %}
 <!-- Hero Section-->
-<h1>Ultimos Posts</h1>
+<div class="titulo-g">
+    <h2>Ultimos Posts</h2>
+</div>
 
-<ul>
 {% for post in blog_list %}
-    <li>{{ post.titulo }}-{{ post.creacion_en|date }} <br>{{post.descripcion}} </li>
+    <div class="hero-post-l shadow-pre rounded my-md-4"> <!--Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-fluid mr-md-auto" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
+            </div>
+            <div class="col-md-9">
+                <h2>{{post.titulo}}<br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
+                <p>{{post.descripcion}}</p> 
+            </div>
+        </div>
+    </div>
+
 {% empty %}
-    <li>No hay ningun post hasta el momento</li>
+    <div class="hero-post shadow-pre">No hay ningun post hasta el momento</div>
 {% endfor %}
-</ul>
+
 {%endblock content1 %}
 
 
 {% block content2%}
+<div class="titulo-g">
 <h2>Post mas recientes</h2>
-<ul>
+</div>
+
 {% for post in recent_post %}
-    <li>{{ post.creacion_en|date }} - {{ post.titulo }}</li>
+<div class="hero-post-r shadow-pre rounded my-md-4"> <!--Post -->
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-fluid" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
+        </div>
+        <div class="col-md-9">
+            <h4>{{ post.titulo}}<br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h4>
+            <p>{{post.descripcion}}</p> 
+        </div>
+    </div>
+</div>
+{% empty %}
+    <div class="hero-post shadow-pre">No hay ningun post hasta el momento</div>
 {% endfor %}
-</ul>
+
 {%endblock content2%}
 
 

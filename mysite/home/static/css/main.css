@@ -7,12 +7,12 @@
 }
 
 body{
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Source Sans Pro',sans-serif;
     background-color: whitesmoke;
 }
 
 h1,h2,h3,h4,h5{
-    font-family: 'Open Sans',sans-serif;
+    font-family: 'Roboto',sans-serif;
     font-weight: 700;
 }
 
@@ -30,7 +30,7 @@ h1,h2,h3,h4,h5{
     margin:0;
     width: 25%;
     text-align: left;
-    font-size: 2vw;
+    font-size: 3vw;
     text-decoration: none;
     font-weight: 300;
 }
@@ -48,22 +48,66 @@ h1,h2,h3,h4,h5{
 
 .footer-c{
     position: relative;
+    background-color: rgb(230, 228, 228);
     bottom: 0;
     width: 100%;
     padding-bottom: 0;
     margin-bottom: 0;
-    margin-top: 2rem;
+    margin-top: 0;
+    padding-top: 1rem;
 }
 
-@media only screen and (max-width: 720px) {
+.hero{
+    position: relative;
+    width: 90%;
+    left: 5%;
+    padding-bottom: 0;
+    margin-bottom: 0%;
+    border-left:1px solid rgb(216, 214, 214);
+    border-right:1px solid rgb(216, 214, 214);
+    border-radius: 2px;
+}
+
+/* Css home_list*/
+.fecha-p{
+    font-style: italic;
+    font-size: medium;
+    font-weight: lighter;
+}
+
+.linea-lateral{
+    border-left: thin solid rgb(216, 214, 214);
+  }
+
+.titulo-g{
+    border-bottom:2px solid var(--blueDark);
+}
+.shadow-pre{
+    box-shadow: 0.2rem .2rem .15rem rgba(0,0,0,.075)
+}
+
+
+ 
+
+
+
+
+/*Responsive menu nav fon size*/
+@media only screen and (max-width: 780px) {
     .navbar-logo{
-        font-size: 4vh;
+        font-size: 6vh;
     }
 
     .navbar{
-        font-size:3.4vw;
+        font-size:4vw;
         text-align: center;
     }
+
+    .linea-lateral{
+        border-top: medium solid rgb(216, 214, 214);
+        border-left: none;
+        margin-top: 1rem;
+      }
   }
 
 
