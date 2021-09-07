@@ -93,7 +93,7 @@ h1,h2,h3,h4,h5{
 
 
 /*Responsive menu nav fon size*/
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 767px) {
     .navbar-logo{
         font-size: 6vh;
     }
@@ -106,7 +106,7 @@ h1,h2,h3,h4,h5{
     .linea-lateral{
         border-top: medium solid rgb(216, 214, 214);
         border-left: none;
-        margin-top: 1rem;
+        padding-top: 1rem;
       }
   }
 
