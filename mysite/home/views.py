@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from blog.models import Blog,Autor,Tags
+from blog.models import Blog,Autor,Categoria
 from django.views import View
 
 # Create your views here.

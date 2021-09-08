@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import register
-from .models import Autor,Tags,Blog
+from .models import Autor,Categoria,Blog
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
@@ -16,5 +16,5 @@ class BlogAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 
 
 admin.site.register(Autor)
-admin.site.register(Tags)
+admin.site.register(Categoria)
 admin.site.register(Blog,BlogAdmin)

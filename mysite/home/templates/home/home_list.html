@@ -15,6 +15,7 @@
             <div class="col-md-9">
                 <h2>{{post.titulo}}<br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
                 <p>{{post.descripcion}}</p> 
+                <span style="font-size:0;">{% for categoria in post.categoria.all %} {{ categoria }}{% endfor %}</span>
             </div>
         </div>
     </div>
