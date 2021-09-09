@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+
+
+
+
+
 {% block content1 %}
 <!-- Hero Section-->
 <div class="titulo-g">
@@ -13,7 +18,7 @@
                 <img class="img-fluid mr-md-auto" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
             </div>
             <div class="col-md-9">
-                <h2>{{post.titulo}}<br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
+                <h2><a href="{% url 'blog:post_detail' post.id %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
                 <p>{{post.descripcion}}</p> 
                 <span style="font-size:0;">{% for categoria in post.categoria.all %} {{ categoria }}{% endfor %}</span>
             </div>
@@ -24,7 +29,7 @@
     <div class="hero-post shadow-pre">No hay ningun post hasta el momento</div>
 {% endfor %}
 
-{%endblock content1 %}
+{% endblock content1 %}
 
 
 {% block content2%}
@@ -39,7 +44,7 @@
             <img class="img-fluid" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
         </div>
         <div class="col-md-9">
-            <h4>{{ post.titulo}}<br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h4>
+            <h4><a href="{% url 'blog:post_detail' post.id %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h4>
             <p>{{post.descripcion}}</p> 
         </div>
     </div>
@@ -48,6 +53,20 @@
     <div class="hero-post shadow-pre">No hay ningun post hasta el momento</div>
 {% endfor %}
 
-{%endblock content2%}
+<div class="titulo-g">
+    <h2>Categorias</h2>
+    </div>
+    <div class="container">   
+
+<div class="row align-items-center">
+    {% for categoria in categorias %}
+    <div class="shadow-pre col-6 col-sm-5 offset-sm-1 text-center">
+        {{categoria.nombre}}
+    </div>
+    {% endfor %}
+</div>
+
+</div>
+{% endblock content2%}
 
 

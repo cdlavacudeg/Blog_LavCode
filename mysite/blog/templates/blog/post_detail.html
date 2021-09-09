@@ -1,0 +1,50 @@
+{% extends 'home/home_list.html' %}
+
+
+
+{% block detail %}
+
+{% if post %}
+    <div class="hero-post-l shadow-sm rounded my-md-4"> <!--Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-fluid mr-md-auto" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
+            </div>
+            <div class="col-md-9">
+                <h2> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
+                <p>{{post.descripcion}}</p>
+                <span style="font-size:0;">{% for categoria in post.categoria.all %} {{ categoria }}{% endfor %}</span>
+                <p>{% lorem 20 p random %}</p>
+            </div>
+        </div>
+    </div>
+{% else %}
+<p>No existe ese post</p>
+{% endif %}
+
+{% endblock detail %}
+
+{% block content1 %}
+<div class="titulo-g">
+    <h2>Tambien te puede interesar</h2>
+</div>
+
+{% for post in blog_list %}
+    <div class="hero-post-l shadow-pre rounded my-md-4"> <!--Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-fluid mr-md-auto" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
+            </div>
+            <div class="col-md-9">
+                <h2><a href="{% url 'blog:post_detail' post.id %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
+                <p>{{post.descripcion}}</p> 
+                <span style="font-size:0;">{% for categoria in post.categoria.all %} {{ categoria }}{% endfor %}</span>
+            </div>
+        </div>
+    </div>
+
+{% empty %}
+    <div class="hero-post shadow-pre">No hay ningun post hasta el momento</div>
+{% endfor %}
+
+{% endblock content1 %}

@@ -9,6 +9,7 @@ class HomeView(View):
     def get(self,request):
         post=Blog.objects.all().order_by('-creacion_en')[:10]
         recent_list=Blog.objects.all().order_by('-modificado_en')[:5]
-        ctx={'blog_list':post,'recent_post':recent_list}
+        cate=Categoria.objects.all().order_by('nombre')
+        ctx={'blog_list':post,'recent_post':recent_list,'categorias':cate}
         return render(request,'home/home_list.html',ctx)
 

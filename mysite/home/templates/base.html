@@ -33,7 +33,7 @@
         
       <div class="container">
 
-          <a href="#" class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></a>
+          <a href="{% url 'home:all' %} " class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></a>
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -91,6 +91,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
+            {% block detail %}
+            {% endblock detail %}
             {% block content1 %}
             {% endblock content1 %}
           </div>
@@ -116,7 +118,7 @@
           <div class="row">
             <div class="col-md-4 text-justify">
               <div class="container">
-              <a href="#" class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></a>
+              <span href="#" class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></span>
               
               <p class="text-justify">
                 Esta página nace como un proyecto personal que pretende documentar mi experiencia en ciertos campos de la programación.<br/> Espero que la información aquí publicada también pueda ser de ayuda para otras personas que a su vez quieran empezar a aprender y necesiten un pequeño referente que los guíe en este vasto mundo de la programación. 
