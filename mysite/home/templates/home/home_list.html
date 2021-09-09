@@ -25,44 +25,73 @@
         </div>
     </div>
 
+    
+
 {% empty %}
     <div class="hero-post shadow-pre">No hay ningun post hasta el momento</div>
 {% endfor %}
+    {% block paginacion %}
+        <div class="row ">
+            <div class="col-12 col-lg-6 offset-lg-3 text-center py-2">
+                                   
 
-{% endblock content1 %}
+                {% if blog_list.has_previous %}
+                    <span class="btn-paginator"><a href="?page=1">&laquo;&laquo;&laquo;</a></span>
+                    <span class="paginator"><a href="?page={{ blog_list.previous_page_number }}">{{blog_list.previous_page_number}}</a></span>
+                    <span class="paginator"> {{ blog_list.number }} </span>
+                {% else %}
+                 <span class="paginator">{{ blog_list.number }}</span>
+                {% endif %}
 
+                
+                {% if blog_list.has_next %}
+                    <span class="paginator"><a href="?page={{ blog_list.next_page_number }}">{{blog_list.next_page_number}}</a></span>
+                    <span class="btn-paginator"><a href="?page={{ blog_list.paginator.num_pages }}"> &raquo;&raquo;&raquo;</a></span>
+                {% endif %}                    
+            </div>
 
-{% block content2%}
-<div class="titulo-g">
-<h2>Post mas recientes</h2>
-</div>
-
-{% for post in recent_post %}
-<div class="hero-post-r shadow-pre rounded my-md-4"> <!--Post -->
-    <div class="row">
-        <div class="col-md-3">
-            <img class="img-fluid" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
+            <div class="col-12 col-lg-3 text-center py-2"><span class="paginator-label" >
+                Página {{ blog_list.number }} de {{ blog_list.paginator.num_pages }}
+            </span></div>
         </div>
-        <div class="col-md-9">
-            <h4><a class="post-link" href="{% url 'blog:post_detail' post.id %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h4>
-            <p>{{post.descripcion}}</p> 
+        
+
+        {% endblock paginacion %}
+
+    {% endblock content1 %}
+
+
+    {% block content2%}
+    <div class="titulo-g">
+    <h2>Post mas recientes</h2>
+    </div>
+
+    {% for post in recent_post %}
+    <div class="hero-post-r shadow-pre rounded my-md-4"> <!--Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-fluid" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
+            </div>
+            <div class="col-md-9">
+                <h4><a class="post-link" href="{% url 'blog:post_detail' post.id %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h4>
+                <p>{{post.descripcion}}</p> 
+            </div>
         </div>
     </div>
-</div>
-{% empty %}
-    <div class="hero-post shadow-pre">No hay ningun post hasta el momento</div>
-{% endfor %}
+    {% empty %}
+        <div class="hero-post shadow-pre">No hay ningun post hasta el momento</div>
+    {% endfor %}
 
-<div class="titulo-g">
-    <h2>Categorias</h2>
-    </div>
-    <div class="container">   
+    <div class="titulo-g">
+        <h2>Categorias</h2>
+        </div>
+        <div class="container">   
 
-<div class="row align-items-center">
-    {% for categoria in categorias %}
-    <div class="shadow-pre col-6 col-sm-5 offset-sm-1 text-center">
-        {{categoria.nombre}}
-    </div>
+    <div class="row align-items-center">
+        {% for categoria in categorias %}
+        <div class="shadow-pre col-6 col-sm-5 offset-sm-1 text-center">
+            {{categoria.nombre}}
+        </div>
     {% endfor %}
 </div>
 
