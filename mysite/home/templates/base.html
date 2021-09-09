@@ -73,9 +73,17 @@
 
 
             <form class="d-flex mr-md-auto">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-blue" type="submit">Search</button>
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-blue" type="submit">Buscar</button>
             </form>
+            
+            <span class="navbar-nav px-sm-2">
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'logout' %}?next={% url 'home:all' %}">Logout</a>
+            {% else %}
+            <a  class="nav-link" href="{% url 'login' %}?next={% url 'home:all' %}">Login</a>
+            {% endif %}
+          </span>
 
           </div>
         </div>
@@ -118,7 +126,7 @@
           <div class="row">
             <div class="col-md-4 text-justify">
               <div class="container">
-              <span href="#" class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></span>
+              <span class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></span>
               
               <p class="text-justify">
                 Esta página nace como un proyecto personal que pretende documentar mi experiencia en ciertos campos de la programación.<br/> Espero que la información aquí publicada también pueda ser de ayuda para otras personas que a su vez quieran empezar a aprender y necesiten un pequeño referente que los guíe en este vasto mundo de la programación. 
