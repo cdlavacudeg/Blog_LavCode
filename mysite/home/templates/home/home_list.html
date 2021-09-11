@@ -90,7 +90,7 @@
     <div class="row align-items-center">
         {% for categoria in categorias %}
         <div class="shadow-pre col-6 col-sm-5 offset-sm-1 text-center">
-            {{categoria.nombre}}
+            <a class="post-link" href="{% url 'home:all' %}?search={{categoria.nombre}}">{{categoria.nombre}}</a>
         </div>
     {% endfor %}
 </div>
