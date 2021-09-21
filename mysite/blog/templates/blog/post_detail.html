@@ -36,7 +36,7 @@
                 <img class="img-fluid mr-md-auto" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
             </div>
             <div class="col-md-9">
-                <h2><a class="post-link" href="{% url 'blog:post_detail' post.id %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
+                <h2><a class="post-link" href="{% url 'blog:post_detail' post.slug %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
                 <p>{{post.descripcion}}</p> 
                 <span style="font-size:0;">{% for categoria in post.categoria.all %} {{ categoria }}{% endfor %}</span>
             </div>

@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.fields import NullBooleanField
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 # Create your models here.
 class Autor(models.Model):
@@ -8,7 +9,6 @@ class Autor(models.Model):
 
     def __str__(self):
         return self.autor
-
 
 class Categoria(models.Model):
     nombre=models.CharField(max_length=90,blank=True,unique=True)
@@ -19,11 +19,9 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nombre
 
-
-
 class Blog(models.Model):
     titulo=models.CharField(max_length=90,blank=False,null=False)
-    slug=models.CharField(max_length=100,blank=False,null=False)
+    slug=models.SlugField(max_length=100,blank=False,null=False,unique=True)
     descripcion=models.CharField(max_length=100,blank=False,null=False)
     imagen=models.URLField(max_length=245,blank=False,null=False)
     autor=models.ForeignKey('Autor',on_delete=models.CASCADE)
@@ -38,6 +36,10 @@ class Blog(models.Model):
 
     def __str__(self) :
         return self.titulo
+
+    def save(self,*args,**kargs):
+        self.slug=slugify(self.titulo)
+        super(Blog,self).save(*args,**kargs)
 
  
 

@@ -12,6 +12,7 @@ class BlogResource(resources.ModelResource):
 class BlogAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     search_fields=['titulo','descripcion','tags']
     list_display=('titulo','descripcion',)
+    exclude=('slug',)
     resource_class=BlogResource
 
 

@@ -6,6 +6,12 @@ from django.views import View
 from django.core.paginator import Paginator
 from django.db.models import Q
 # Create your views here.
+class Home(View):
+    template_name='home/home.html'
+
+    def get(self,request):
+       return render(request,self.template_name) 
+
 class HomeView(View):
     template_name='home/home_list.html'
         
@@ -28,19 +34,14 @@ class HomeView(View):
 
         strval=request.GET.get('search',False)
         if strval :
-            # Simple title-only search
-            # objects = Post.objects.filter(title__contains=strval).select_related().order_by('-updated_at')[:10]
-
-            # Multi-field search
-            # __icontains for case-insensitive search
-            query = Q(titulo__icontains=strval)
-            #query.add(Q(contenido__icontains=strval), Q.OR)
-            blog_list = Blog.objects.filter(query).select_related().order_by('-creacion_en')
+            
+            #https://docs.djangoproject.com/en/3.1/topics/db/queries/#complex-lookups-with-q
+            query= Q(titulo__icontains=strval)| Q(contenido__icontains=strval) |Q(descripcion__icontains=strval)
+            blog_list = Blog.objects.filter(query).prefetch_related().order_by('-creacion_en')
         else :
             blog_list = Blog.objects.all().order_by('-creacion_en')
 
         return blog_list,strval
 
 
-    
 

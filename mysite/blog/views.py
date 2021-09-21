@@ -9,8 +9,8 @@ class PostDetailView(HomeView):
     
     template_name="blog/post_detail.html"
 
-    def get(self,request,pk):
-        post_of_id=Blog.objects.get(id=pk)
+    def get(self,request,str):
+        post_of_id=Blog.objects.get(slug=str)
         self.template_name="blog/post_detail.html"
         context={}
         strval=request.GET.get('search',False)
