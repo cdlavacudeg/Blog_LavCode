@@ -44,37 +44,16 @@
               <li class="nav-item mx-lg-auto">
                 <a class="nav-link" aria-current="page" href="{% url 'home:all' %}">Inicio</a>
               </li>
-              
-              <!-- <li class="nav-item dropdown mx-md-2">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Tablas resumen
-                </a>
-
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Django</a></li>
-                  <li><a class="dropdown-item" href="#">Mql5</a></li>
-                </ul>
-              </li> -->
-
               <li class="nav-item mx-lg-auto">
                 <a class="nav-link" aria-current="page" href="{% url 'blog:all' %}">Blog</a>
               </li>
-              
-              <!-- <li class="nav-item dropdown mx-md-2">
-                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cursos</a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Html</a></li>
-                  <li><a class="dropdown-item" href="#">CSS</a></li>
-                  <li><a class="dropdown-item" href="#">Pyhton</a></li>
-                  <li><a class="dropdown-item" href="#">Mql5</a></li>
-                </ul>
-              </li> -->
+
             </ul>
 
 
             <form class="d-flex mr-md-auto">
               <input class="form-control me-2" type="text" placeholder="Buscar" aria-label="Search" name="search"  {% if search %} value="{{ search }}" {% endif %}>
-              <button class="btn btn-outline-blue" type="submit">Buscar</button>
+              <button class="btn btn-outline-blue" type="submit"><span class="fa fa-search"></span></button>
             </form>
             
             <span class="navbar-nav px-sm-2">
@@ -137,26 +116,38 @@
               <span class="navbar-logo"><span style="color: var(--blueDark);">Lav</span><span style="color:var(--blueLightDark)">Code</span></span>
               
               <p class="text-justify">
-                Esta página nace como un proyecto personal que pretende documentar mi experiencia en ciertos campos de la programación.<br/> Espero que la información aquí publicada también pueda ser de ayuda para otras personas que a su vez quieran empezar a aprender y necesiten un pequeño referente que los guíe en este vasto mundo de la programación. 
-
+                 Espero que la información aquí publicada sea de ayuda para aquellas personas que esten empezando a aprender y necesiten un pequeño referente que los guíe en este vasto mundo de la programación. 
               </p>
             </div>
           </div>
 
           <div class="col-md-4">
-            {% block footer1 %}
-            {% endblock footer1 %}
+            <div class="container pt-3 text-center">
+              <h2>Redes Sociales</h2>
+              <div class="p-4">
+                <a class="btn btn-dark btn-lg" role="button" href="https://github.com/crislav10"><span class="fa fa-github p"></span></a>
+                <a class="btn btn-primary btn-lg" role="button" href="https://www.linkedin.com/in/cristian-david-lavacude-galvis-37270617b/"><i class="fab fa-linkedin-in"></i></a>
+
+              </div>
+            </div>
           </div>            
             
           <div class="col-md-4">
-            {% block footer2 %}
-            {% endblock footer2 %}
+            <div class="container pt-3 text-center">
+              <h2>Sucribete</h2>
+              <div class="p-4">
+                <form class="d-flex">
+                  <input class="form-control me-2" type="email" placeholder="Email" aria-label="News-letter">
+                  <button class="btn btn-outline-blue" type="submit">Suscribirme</button>
+                </form>
+              </div>
+            </div>
           </div>
             
             </div>
           </div>
           <div class="w-100 text-center p-0">
-            <span>Made by Cristian Lavacude &copy; 2021.</span>
+            <span>Hecho por Cristian Lavacude &copy; 2021.</span>
           </div>
         </div>
       </footer>
