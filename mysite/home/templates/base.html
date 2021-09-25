@@ -134,11 +134,13 @@
             
           <div class="col-md-4">
             <div class="container pt-3 text-center">
-              <h2>Sucribete</h2>
+              <h2>Newsletter</h2>
               <div class="p-4">
-                <form class="d-flex">
-                  <input class="form-control me-2" type="email" placeholder="Email" aria-label="News-letter">
-                  <button class="btn btn-outline-blue" type="submit">Suscribirme</button>
+                <form class="d-flex" method="POST">
+                  {% csrf_token %}
+                  {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                  <input class="form-control me-2" type="email" name="emailSub" placeholder="Email" aria-label="News-letter">
+                  <input class="btn btn-outline-blue" type="submit" value="Suscribirme">
                 </form>
               </div>
             </div>

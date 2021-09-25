@@ -1,7 +1,8 @@
 from django.core import paginator
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from blog.models import Blog,Autor,Categoria
+from .models import Subscribers
 from django.views import View
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -14,9 +15,19 @@ class Home(View):
 
 class HomeView(View):
     template_name='home/home_list.html'
+    
+    def post(self,request,*args,**kargs):
+        email_sub=request.POST.get('emailSub')
+        if (email_sub):
+            Subscribers.objects.create(email=email_sub)      
+            return redirect('home:all')
+
+
+
         
     def get(self,request):
         
+
         recent_list=Blog.objects.all().order_by('-modificado_en')[:5]
         cate=Categoria.objects.all().order_by('nombre')
         post,search_val=self.search_func(request)
@@ -29,6 +40,8 @@ class HomeView(View):
 
 
         return render(request,self.template_name,ctx)
+    
+
 
     def search_func(self,request):
 
@@ -42,6 +55,10 @@ class HomeView(View):
             blog_list = Blog.objects.all().order_by('-creacion_en')
 
         return blog_list,strval
+
+    
+
+
 
 
 
