@@ -8,6 +8,13 @@ class BlogResource(resources.ModelResource):
     class Meta:
         model=Blog
 
+class AutorResource(resources.ModelResource):
+    class Meta:
+        model=Autor
+
+class CategoriaResource(resources.ModelResource):
+    class Meta:
+        model=Categoria
 
 class BlogAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     search_fields=['titulo','descripcion','tags']
@@ -15,7 +22,12 @@ class BlogAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     exclude=('slug',)
     resource_class=BlogResource
 
+class AutorAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    resource_class=AutorResource
+    
+class CategoriaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    resource_class=CategoriaResource
 
-admin.site.register(Autor)
-admin.site.register(Categoria)
+admin.site.register(Autor,AutorAdmin)
+admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Blog,BlogAdmin)

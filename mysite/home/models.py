@@ -4,7 +4,7 @@ from django.core.validators import EmailValidator, validate_email
 
 # Modelo Newsletter.
 class Subscribers(models.Model):
-    email=EmailField(validators=[validate_email],null=False,blank=False)
+    email=EmailField(validators=[validate_email],null=False,blank=False,unique=True)
     fecha=DateField(auto_now_add=True)
 
     def __str__(self):
