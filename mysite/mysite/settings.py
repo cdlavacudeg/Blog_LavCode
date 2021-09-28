@@ -87,6 +87,14 @@ DATABASES = {
    }
 }
 
+DEFAULT_FROM_EMAIL = 'lavcode.mail@gmail.com'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'lavcode.mail@gmail.com'
+EMAIL_HOST_PASSWORD = 'rr6i9tLX7i9t#'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 ##Configuracion para postgressql
 # DATABASES = {
 #     'default': {

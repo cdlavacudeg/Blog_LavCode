@@ -5,6 +5,8 @@ from django.core import paginator
 from django.views import View
 from home.models import Subscribers
 from django.db.models import Q
+from django.core.mail import send_mail
+
 
 # Create your views here.
 
@@ -14,7 +16,14 @@ class HomeView(View):
     def post(self,request,*args,**kargs):
         email_sub=request.POST.get('emailSub')
         if (email_sub):
-            Subscribers.objects.create(email=email_sub)      
+            Subscribers.objects.create(email=email_sub)
+            subject="Bienvenido a LavCode"
+            message="Bienvenido a mi Blog espero que disfrutes del contenido."
+            html=None
+            recipient_list=[email_sub]
+            send_mail(subject,message,None,recipient_list,html_message=html)
+            
+              
             return redirect('home:all')
 
 
