@@ -1,11 +1,14 @@
-from django.shortcuts import render, redirect
-from .models import Blog,Categoria
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy,reverse
+from .models import Blog,Categoria,Comment
 from django.core.paginator import Paginator
 from django.core import paginator
 from django.views import View
 from home.models import Subscribers
 from django.db.models import Q
 from django.core.mail import send_mail
+import logging
+
 
 
 # Create your views here.
@@ -22,9 +25,7 @@ class HomeView(View):
             html=None
             recipient_list=[email_sub]
             send_mail(subject,message,None,recipient_list,html_message=html)
-            
-              
-            return redirect('home:all')
+            return redirect(request.path_info)
 
 
     def get(self,request):
@@ -60,9 +61,23 @@ class PostDetailView(HomeView):
     
     template_name="blog/post_detail.html"
 
+    def post(self,request,str):
+        response=super().post(request,str)
+
+        a = get_object_or_404(Blog, slug=str)
+        if request.POST.get('comentario_text'):
+        
+            comment = Comment(contenido=request.POST.get('comentario_text'), blog_id=a)
+            comment.save()
+            response=redirect(reverse('blog:post_detail', args=[str]))
+        
+        return response
+
     def get(self,request,str):
         
         post_of_id=Blog.objects.get(slug=str)
+        comentarios_post=Comment.objects.filter(blog_id=post_of_id).order_by('fecha_creacion')
+        
         self.template_name="blog/post_detail.html"
         context={}
 
@@ -80,5 +95,5 @@ class PostDetailView(HomeView):
         recent_list=Blog.objects.all().order_by('-modificado_en')[:5]
         cate=Categoria.objects.all().order_by('nombre')
         
-        context={'blog_list':post,'post':post_of_id,'recent_post':recent_list,'categorias':cate,'search':strval}
+        context={'blog_list':post,'post':post_of_id,'recent_post':recent_list,'categorias':cate,'search':strval,'comentarios_post':comentarios_post}
         return render(request,self.template_name,context)

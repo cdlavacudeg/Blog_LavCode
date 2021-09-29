@@ -133,9 +133,9 @@
           </div>            
             
           <div class="col-md-4">
-            <div class="container pt-3 text-center">
+            <div class="pt-3 text-center">
               <h2>Newsletter</h2>
-              <div class="p-4">
+              <div class="p-1">
                 <form class="d-flex" method="POST">
                   {% csrf_token %}
                   {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}

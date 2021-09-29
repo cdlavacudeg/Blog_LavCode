@@ -1,6 +1,8 @@
 from django.db import models
+from django.db.models.base import Model
 from django.db.models.fields import NullBooleanField
 from ckeditor.fields import RichTextField
+from django.core.validators import MinLengthValidator
 from django.utils.text import slugify
 
 # Create your models here.
@@ -26,6 +28,7 @@ class Blog(models.Model):
     imagen=models.URLField(max_length=245,blank=False,null=False)
     autor=models.ForeignKey('Autor',on_delete=models.CASCADE)
     categoria=models.ManyToManyField('Categoria')
+    comentarios=models.ForeignKey('Comment',on_delete=models.SET_NULL,null=True)
     
     #https://django-ckeditor.readthedocs.io/en/latest/#django-ckeditor
     contenido=RichTextField()
@@ -41,6 +44,12 @@ class Blog(models.Model):
         self.slug=slugify(self.titulo)
         super(Blog,self).save(*args,**kargs)
 
- 
+class Comment (models.Model):
+    contenido=models.TextField(validators=[MinLengthValidator(3, "Comentario debe ser mayor a 3 caracteres.")])
+    blog_id=models.ForeignKey('Blog',on_delete=models.CASCADE)
 
-
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        if len(self.contenido) < 15 : return self.contenido
+        return self.contenido[:11] + ' ...'

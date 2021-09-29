@@ -18,6 +18,34 @@
             <div class="col-12">{{post.contenido|safe}}</div>
         </div>
     </div>
+    <div class=row>
+        <div class="titulo-g">
+            <h3>Comentarios</h3>
+        </div>
+        <div class="col-12  mt-3">
+            <form method="POST">
+                {% csrf_token %}
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <div class="form-group row">
+                    <label  class="col-lg-2 col-form-label px-1">Que opinas de este post:</label>
+                    <div class="col-lg-10 pt-1">
+                        <textarea class="form-control" id="comentario_text" name="comentario_text" rows="3" placeholder="Añade un comentario"></textarea>
+                    </div >
+                </div>
+                <div class="from-group row">
+                    <div class="col-5 offset-7 col-lg-2 offset-lg-10 mt-1">
+                        <button type="submit" class="form-control btn btn-outline-blue">Publicar</button>
+                    </div>
+                </div>
+            </form>
+            
+            <div name="lista_comentarios">
+                {% for comentario in comentarios_post %}
+            <p> {{ comentario.contenido }} </p>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
 {% else %}
 <p>No existe ese post</p>
 {% endif %}
