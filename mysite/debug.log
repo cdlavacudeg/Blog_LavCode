@@ -1,0 +1,16 @@
+Watching for file changes with StatReloader
+Se crea un nuevo comentario en Post Bases de Html
+contenido del comentario: Comentario prueba logging debug
+Se crea un nuevo comentario en Post Post 1
+contenido del comentario: Comentarios prueba
+D:\Documentos\8. Desarrollo web\1.Proyecto_BLOG_Django\Pagina_Django\mysite\blog\views.py changed, reloading.
+Using proactor: IocpProactor
+Watching for file changes with StatReloader
+Se crea un nuevo comentario en Post Post 1
+contenido del comentario: 5 odqpwoesadla
+
+Se crea un nuevo comentario en Post Django
+contenido del comentario: Comentario tres
+
+Using proactor: IocpProactor
+Using proactor: IocpProactor

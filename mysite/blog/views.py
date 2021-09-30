@@ -8,7 +8,8 @@ from home.models import Subscribers
 from django.db.models import Q
 from django.core.mail import send_mail
 import logging
-
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 # Create your views here.
@@ -66,7 +67,8 @@ class PostDetailView(HomeView):
 
         a = get_object_or_404(Blog, slug=str)
         if request.POST.get('comentario_text'):
-        
+            logger.debug('Se crea un nuevo comentario en Post '+a.titulo)
+            logger.debug('contenido del comentario: '+request.POST.get('comentario_text')+"\n")
             comment = Comment(contenido=request.POST.get('comentario_text'), blog_id=a)
             comment.save()
             response=redirect(reverse('blog:post_detail', args=[str]))
