@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ckeditor',
     #https://django-import-export.readthedocs.io/en/latest/index.html
     'import_export',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -159,12 +160,12 @@ LOGGING = {
     # The version number of our log
     'disable_existing_loggers': False,
 
-    # handler para DEBUG. Escribe mensajes en un archivo llamado debug.log
+    # handler para WARNING. Escribe mensajes en un archivo llamado warning.log
     'handlers': {
         'file': {
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'debug.log',
+            'filename': BASE_DIR / 'warning.log',
         },
     },
     
@@ -172,7 +173,7 @@ LOGGING = {
        # notice the blank '', Usually you would put built in loggers like django or root here based on your needs
         '': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'propagate': True,
         },
     },

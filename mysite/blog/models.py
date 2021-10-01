@@ -28,7 +28,7 @@ class Blog(models.Model):
     imagen=models.URLField(max_length=245,blank=False,null=False)
     autor=models.ForeignKey('Autor',on_delete=models.CASCADE)
     categoria=models.ManyToManyField('Categoria')
-    comentarios=models.ForeignKey('Comment',on_delete=models.SET_NULL,null=True)
+    comentarios=models.ForeignKey('Comment',on_delete=models.SET_NULL,blank=True,null=True)
     
     #https://django-ckeditor.readthedocs.io/en/latest/#django-ckeditor
     contenido=RichTextField()

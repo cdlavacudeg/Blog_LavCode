@@ -17,10 +17,10 @@ class Home(HomeView):
         if strval:
             post,strval=super().search_func(request)
             self.template_name="blog/blog_list.html"
-            paginator=Paginator(post,10)
+            paginator=Paginator(post,6)
             page_number=request.GET.get('page')
             post=paginator.get_page(page_number)
-            recent_list=Blog.objects.all().order_by('-modificado_en')[:5]
+            recent_list=Blog.objects.all().order_by('-creacion_en')[:4]
             cate=Categoria.objects.all().order_by('nombre')
             ctx={'blog_list':post,'recent_post':recent_list,'categorias':cate,'search':strval}
 

@@ -31,11 +31,11 @@ class HomeView(View):
 
     def get(self,request):
         
-        recent_list=Blog.objects.all().order_by('-modificado_en')[:5]
+        recent_list=Blog.objects.all().order_by('-creacion_en')[:4]
         cate=Categoria.objects.all().order_by('nombre')
         post,search_val=self.search_func(request)
         #Paginador de Django https://docs.djangoproject.com/en/3.2/ref/paginator/
-        paginator=Paginator(post,10)
+        paginator=Paginator(post,6)
         page_number=request.GET.get('page')
         page_obj=paginator.get_page(page_number)
 
@@ -87,14 +87,14 @@ class PostDetailView(HomeView):
         if strval:
             post,strval=super().search_func(request)
             self.template_name="blog/blog_list.html"
-            paginator=Paginator(post,10)
+            paginator=Paginator(post,6)
             page_number=request.GET.get('page')
             post=paginator.get_page(page_number)
 
         else:
             post=Blog.objects.exclude(id=post_of_id.id).order_by('-creacion_en')[:3]
         
-        recent_list=Blog.objects.all().order_by('-modificado_en')[:5]
+        recent_list=Blog.objects.all().order_by('-creacion_en')[:4]
         cate=Categoria.objects.all().order_by('nombre')
         
         context={'blog_list':post,'post':post_of_id,'recent_post':recent_list,'categorias':cate,'search':strval,'comentarios_post':comentarios_post}
