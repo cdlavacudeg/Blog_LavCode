@@ -26,7 +26,7 @@ class HomeView(View):
             html=None
             recipient_list=[email_sub]
             send_mail(subject,message,None,recipient_list,html_message=html)
-            return redirect(request.path_info)
+            return redirect('home:sub_ok')
 
 
     def get(self,request):
@@ -65,10 +65,10 @@ class PostDetailView(HomeView):
     def post(self,request,str):
         response=super().post(request,str)
 
-        a = get_object_or_404(Blog, slug=str)
         if request.POST.get('comentario_text'):
-            logger.debug('Se crea un nuevo comentario en Post '+a.titulo)
-            logger.debug('contenido del comentario: '+request.POST.get('comentario_text')+"\n")
+            a = get_object_or_404(Blog, slug=str)
+            logger.warning('Se crea un nuevo comentario en Post '+a.titulo)
+            logger.warning('contenido del comentario: '+request.POST.get('comentario_text')+"\n")
             comment = Comment(contenido=request.POST.get('comentario_text'), blog_id=a)
             comment.save()
             response=redirect(reverse('blog:post_detail', args=[str]))
@@ -79,21 +79,14 @@ class PostDetailView(HomeView):
         
         post_of_id=Blog.objects.get(slug=str)
         comentarios_post=Comment.objects.filter(blog_id=post_of_id).order_by('fecha_creacion')
-        
         self.template_name="blog/post_detail.html"
-        context={}
-
         strval=request.GET.get('search',False)
         if strval:
-            post,strval=super().search_func(request)
             self.template_name="blog/blog_list.html"
-            paginator=Paginator(post,6)
-            page_number=request.GET.get('page')
-            post=paginator.get_page(page_number)
+            response=super().get(request)
+            return response
 
-        else:
-            post=Blog.objects.exclude(id=post_of_id.id).order_by('-creacion_en')[:3]
-        
+        post=Blog.objects.exclude(id=post_of_id.id).order_by('-creacion_en')[:3]
         recent_list=Blog.objects.all().order_by('-creacion_en')[:4]
         cate=Categoria.objects.all().order_by('nombre')
         

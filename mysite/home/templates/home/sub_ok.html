@@ -1,15 +1,24 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 
 {% block contentExpand %}
 {% load static %}
 <div class="col-12 p-1 p-sm-5 m-auto rounded-2 resaltar">
-    <div class="row">
-       <div class="col-12 col-lg-4 py-2">
-           <img class="img-fluid mx-auto text-center"src="{% static 'img/android-chrome-512x512.png' %}" alt="imgen-presentacion">
-       </div>
-   
-       <div class="col col-lg text-justify fs-4">
-           <h4>Subscribción exitosa del correo {{correo}}</h4>
-       </div>
+ <div class="row">
+    <div class="col-12 col-lg-4 py-2">
+        <img class="img-fluid mx-auto text-center"src="{% static 'img/android-chrome-512x512.png' %}" alt="imgen-presentacion">
+    </div>
+
+    <div class="col col-lg text-justify fs-4">
+        <div class="container">
+            <h1>Subscripción exitosa</h1>
+            <p>
+                Gracias por suscribirte a mi newsletter, espero que disfrutes del contenido y que puedas aprender algo nuevo o reforzar tus conocimientos.
+            </p>
+        </div>
+    </div>
+
+
+ </div>
+</div>
 {% endblock contentExpand %}
