@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'ckeditor',
     #https://django-import-export.readthedocs.io/en/latest/index.html
     'import_export',
+
     'django_extensions',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +137,7 @@ CKEDITOR_CONFIGS = {
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-CO'
 
 TIME_ZONE = 'UTC'
 

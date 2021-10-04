@@ -12,15 +12,19 @@
 </div>
 
 {% for post in blog_list %}
-    <div class="hero-post-l shadow-pre rounded my-md-4"> <!--Post -->
+    <div class="position-relative shadow-pre rounded my-md-4"> <!--Post -->
         <div class="row">
             <div class="col-md-3">
                 <img class="img-fluid mr-md-auto" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
             </div>
             <div class="col-md-9">
-                <h2><a class="post-link"href="{% url 'blog:post_detail' post.slug %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h2>
+                <h2><a class="post-link"href="{% url 'blog:post_detail' post.slug %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date:'d N Y'}}</span></h2>
+                <div class="badges-container">
+                    {% for categoria in post.categoria.all %}
+                    <span  class="badge badge-categoria"> {{categoria}} </span>
+                    {% endfor %}
+                </div>
                 <p>{{post.descripcion}}</p> 
-                <span style="font-size:0;">{% for categoria in post.categoria.all %} {{ categoria }}{% endfor %}</span>
             </div>
         </div>
     </div>
@@ -63,18 +67,19 @@
 
     {% block content2%}
     <div class="titulo-g">
-    <h2>Post mas recientes</h2>
+    <h2>Post más recientes</h2>
     </div>
 
     {% for post in recent_post %}
-    <div class="hero-post-r shadow-pre rounded my-md-4"> <!--Post -->
+    <div class="position-relative shadow-pre rounded my-md-4"> <!--Post -->
         <div class="row">
             <div class="col-md-3">
                 <img class="img-fluid" alt="{{post.slug}}" src="{{post.imagen}}"> <!--img-fluid imagen inicio de post(responsive a su contenedor)-->
             </div>
             <div class="col-md-9">
-                <h4><a class="post-link" href="{% url 'blog:post_detail' post.slug %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date}}</span></h4>
+                <h4><a class="post-link" href="{% url 'blog:post_detail' post.slug %}"> {{post.titulo}}</a><br><span class="fecha-p"><i class="far fa-calendar-alt"></i> {{post.creacion_en|date:'d N Y'}}</span></h4>
                 <p>{{post.descripcion}}</p> 
+                <span style="font-size:0;">{% for categoria in post.categoria.all %} {{ categoria }}{% endfor %}</span>
             </div>
         </div>
     </div>

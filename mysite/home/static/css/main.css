@@ -168,7 +168,23 @@ h1,h2,h3,h4,h5{
     border-color: var(--blueDark);
 } 
  
+/* Badges*/
+.badges-container{
+    position:absolute;
+    top:1px;
+    right:1px;
+    font-size:125%;
+    max-width: 100%;
+}
+.badge-categoria{
+    background-color: var(--blueLightDark) ;
+    color: white;
+}
 
+.badge-tag{
+    background-color: black;
+    color:white;
+}
 
 
 
@@ -187,6 +203,11 @@ h1,h2,h3,h4,h5{
         border-left: none;
         padding-top: 1rem;
       }
+    .badges-container{
+        position: static;
+        max-width: 100%;
+        padding:0;
+    }
   }
 
   @media only screen and (max-width: 320px){

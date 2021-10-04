@@ -50,7 +50,7 @@ class HomeView(View):
         strval=request.GET.get('search',False)
         if strval :
             #https://docs.djangoproject.com/en/3.1/topics/db/queries/#complex-lookups-with-q
-            query= Q(titulo__icontains=strval)| Q(contenido__icontains=strval) |Q(descripcion__icontains=strval)
+            query= Q(titulo__icontains=strval)| Q(contenido__icontains=strval) |Q(descripcion__icontains=strval)|Q(tags__name__in=[strval])
             blog_list = Blog.objects.filter(query).prefetch_related().order_by('-creacion_en')
         else :
             blog_list = Blog.objects.all().order_by('-creacion_en')
@@ -69,7 +69,7 @@ class PostDetailView(HomeView):
             a = get_object_or_404(Blog, slug=str)
             logger.warning('Se crea un nuevo comentario en Post '+a.titulo)
             logger.warning('contenido del comentario: '+request.POST.get('comentario_text')+"\n")
-            comment = Comment(contenido=request.POST.get('comentario_text'), blog_id=a)
+            comment = Comment(contenido=request.POST.get('comentario_text'), blog_id=a,nombre=request.POST.get('autor_comentario'))
             comment.save()
             response=redirect(reverse('blog:post_detail', args=[str]))
         

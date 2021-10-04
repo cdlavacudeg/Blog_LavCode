@@ -4,6 +4,8 @@ from django.db.models.fields import NullBooleanField
 from ckeditor.fields import RichTextField
 from django.core.validators import MinLengthValidator
 from django.utils.text import slugify
+from taggit.managers import TaggableManager
+
 
 # Create your models here.
 class Autor(models.Model):
@@ -29,7 +31,7 @@ class Blog(models.Model):
     autor=models.ForeignKey('Autor',on_delete=models.CASCADE)
     categoria=models.ManyToManyField('Categoria')
     comentarios=models.ForeignKey('Comment',on_delete=models.SET_NULL,blank=True,null=True)
-    
+    tags=TaggableManager(blank=True)
     #https://django-ckeditor.readthedocs.io/en/latest/#django-ckeditor
     contenido=RichTextField()
 
@@ -47,6 +49,7 @@ class Blog(models.Model):
 class Comment (models.Model):
     contenido=models.TextField(validators=[MinLengthValidator(3, "Comentario debe ser mayor a 3 caracteres.")])
     blog_id=models.ForeignKey('Blog',on_delete=models.CASCADE)
+    nombre=models.CharField(max_length=90,blank=True,validators=[MinLengthValidator(3, "Nombre debe ser mayor a 3 caracteres.")])
 
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
