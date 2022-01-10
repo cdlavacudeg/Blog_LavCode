@@ -73,3 +73,4 @@ Traceback (most recent call last):
 django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '::'d N Y'' from 'post.creacion_en|date::'d N Y''
 Not Found: /favicon.ico
 Not Found: /favicon.ico
+Not Found: /favicon.ico
